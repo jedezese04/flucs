@@ -1,0 +1,19 @@
+.word {
+    font-size: clamp(1rem, 10vw, 2rem)
+}
+
+.front-card {
+    @apply w-full bg-indigo-600 h-64 p-3 flex justify-center items-center rounded-md;
+}
+
+.front-card-text {
+    @apply text-white word;
+}
+
+.back-card {
+    @apply w-full bg-transparent h-64 p-3 flex justify-center items-center rounded-md border-indigo-600 border-2;
+}
+
+.back-card-text {
+    @apply text-indigo-600 word;
+}
