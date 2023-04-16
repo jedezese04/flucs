@@ -1,0 +1,25 @@
+.list-container {
+    display: grid;
+    grid-gap: 4px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item {
+    @apply w-full p-2 rounded;
+}
+
+.remembered-item {
+    @apply item bg-indigo-600;
+}
+
+.remembered-text {
+    @apply text-white;
+}
+
+.unremembered-item {
+    @apply item border-indigo-600 border-2;
+}
+
+.unremembered-text {
+    @apply text-indigo-600;
+}
