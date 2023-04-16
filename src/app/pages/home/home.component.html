@@ -2,10 +2,9 @@
     <!-- Filtering Section -->
     <div class="flex justify-between items-center mb-4 max-w-md mx-auto">
         <div class="flex">
-            <button class="active-button mr-3">My Cards</button>
-            <button class="inactive-button">Public Cards</button>
+            <button (click)="updateTap('my-cards')" [ngClass]="currentTab === 'my-cards' ? 'active-button' : 'inactive-button'" class="mr-3">My Cards</button>
+            <button (click)="updateTap('public-cards')" [ngClass]="currentTab === 'public-cards' ? 'active-button' : 'inactive-button'">Public Cards</button>
         </div>
-        <p class="text-lg font-bold">ALL</p>
     </div>
     <!-- End Filtering Section -->
     <div class="mx-auto w-full max-w-md">

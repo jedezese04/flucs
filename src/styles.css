@@ -15,7 +15,7 @@
 }
 
 .button {
-    @apply p-2 rounded font-semibold;
+    @apply p-2 rounded font-semibold transition;
 }
 
 .active-button {
