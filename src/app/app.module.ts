@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent, CardContainerComponent } from './components';
-import { HomeComponent, WordDisplayComponent } from './pages';
+import { HomeComponent, WordDisplayComponent, ResultComponent } from './pages';
 
 @NgModule({
   declarations: [
@@ -12,6 +12,7 @@ import { HomeComponent, WordDisplayComponent } from './pages';
     // Pages
     HomeComponent,
     WordDisplayComponent,
+    ResultComponent,
 
     // Components
     TopBarComponent,

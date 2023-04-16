@@ -1,0 +1,11 @@
+.word {
+    font-size: clamp(1rem, 10vw, 2rem)
+}
+
+.card {
+    @apply w-full bg-indigo-600 h-64 p-3 flex justify-center items-center rounded-md;
+}
+
+.card-text {
+    @apply text-white word;
+}
