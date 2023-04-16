@@ -1,6 +1,7 @@
 export interface Card {
     word: string
     definition: string
+    remembered: boolean
 }
 
 export interface CardSet {

@@ -1,26 +1,17 @@
 <div class="w-full max-w-md">
+    <app-go-back-button></app-go-back-button>
     <p class="font-semibold text-3xl">Math Formula</p>
-    <p class="text-lg my-2">Remembered 20/30</p>
+    <p class="text-lg my-2">Remembered {{ rememberedCount }}/{{ cardSet.cards.length }}</p>
     <div class="flex items-center justify-between">
         <p class="text-lg bg-gray-200 inline-block p-1 px-2 rounded-md">Jedsada N.</p>
-        <p class="font-semibold">Edit</p>
+        <a routerLink="/edit/1" class="font-semibold">Edit</a>
     </div>
     <div class="list-container mt-4">
-        <div class="remembered-item">
-            <p class="remembered-text text-2xl">Word</p>
-            <p class="remembered-text">Definition</p>
-        </div>
-        <div class="remembered-item">
-            <p class="remembered-text text-2xl">Word</p>
-            <p class="remembered-text">Definition</p>
-        </div>
-        <div class="unremembered-item">
-            <p class="unremembered-text text-2xl">Word</p>
-            <p class="unremembered-text">Definition</p>
-        </div>
-        <div class="remembered-item">
-            <p class="remembered-text text-2xl">Word</p>
-            <p class="remembered-text">Definition</p>
-        </div>
+        <ng-container *ngFor="let card of cardSet.cards">
+            <div [ngClass]="{ 'remembered-item': card.remembered, 'unremembered-item': !card.remembered }">
+                <p class="text-xl" [ngClass]="{ 'remembered-text': card.remembered, 'unremembered-text': !card.remembered }">{{ card.word }}</p>
+                <p class="text-sm" [ngClass]="{ 'remembered-text': card.remembered, 'unremembered-text': !card.remembered }">{{ card.definition }}</p>
+            </div>
+        </ng-container>
     </div>
 </div>

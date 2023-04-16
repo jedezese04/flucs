@@ -23,4 +23,8 @@ export class HomeComponent {
     this.router.navigate(['word-display', cardSetId])
   }
 
+  cardClickedIconHandler(cardSetId: string) {
+    this.router.navigate(['set-details', cardSetId])
+  }
+
 }

@@ -6,9 +6,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./card-container.component.css']
 })
 export class CardContainerComponent {
-  @Output('click') clickEvent = new EventEmitter()
+  @Output() clickEvent = new EventEmitter()
+  @Output() iconClickEvent = new EventEmitter()
 
   emitClickEvent(event: MouseEvent) {
     this.clickEvent.emit(event)
+  }
+
+  emitIconClickEvent(event: MouseEvent) {
+    this.iconClickEvent.emit(event)
   }
 }

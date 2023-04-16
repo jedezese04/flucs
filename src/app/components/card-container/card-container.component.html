@@ -1,8 +1,11 @@
-<div (click)="emitClickEvent($event)" class="w-full bg-color-primary p-3 rounded">
-    <p class="text-xl font-semibold text-white">Math Formula</p>
-    <p class="text-white">Remembered : 20/30</p>
-    <div class="flex items-center mt-2">
-        <p class="bg-color-secondary px-2 py-1 rounded-xl text-white mr-3">Mathematics</p>
-        <p class="text-white">Public</p>
+<div class="w-full relative">
+    <div (click)="emitClickEvent($event)" class="w-full bg-color-primary p-3 rounded absolute">
+        <p class="text-xl font-semibold text-white">Math Formula</p>
+        <p class="text-white">Remembered : 20/30</p>
+        <div class="flex items-center mt-2">
+            <p class="bg-color-secondary px-2 py-1 rounded-xl text-white mr-3">Mathematics</p>
+            <p class="text-white">Public</p>
+        </div>
     </div>
+    <i (click)="emitIconClickEvent($event)" class="pi pi-microsoft absolute top-4 right-4 text-white"></i>
 </div>
