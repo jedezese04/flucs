@@ -5,6 +5,7 @@
             <button (click)="updateTap('my-cards')" [ngClass]="currentTab === 'my-cards' ? 'active-button' : 'inactive-button'" class="mr-3">My Cards</button>
             <button (click)="updateTap('public-cards')" [ngClass]="currentTab === 'public-cards' ? 'active-button' : 'inactive-button'">Public Cards</button>
         </div>
+        <p-button label="Create" styleClass="p-button-link p-button-sm" routerLink="/create"></p-button>
     </div>
     <!-- End Filtering Section -->
     <div class="mx-auto w-full max-w-md">

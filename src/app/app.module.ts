@@ -7,7 +7,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopBarComponent, CardContainerComponent, CardEditorItemComponent } from './components';
+import { TopBarComponent, CardContainerComponent, CardEditorItemComponent, GoBackButtonComponent } from './components';
 import { HomeComponent, WordDisplayComponent, ResultComponent, SetDetailsComponent, CreateAndEditSetComponent } from './pages';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { HomeComponent, WordDisplayComponent, ResultComponent, SetDetailsCompone
     TopBarComponent,
     CardContainerComponent,
     CardEditorItemComponent,
+    GoBackButtonComponent,
 
     // Directives
   ],

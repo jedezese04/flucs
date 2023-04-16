@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,15 +13,10 @@ export class WordDisplayComponent {
   
   constructor(
     private route: ActivatedRoute,
-    private location: Location
   ) {
     this.route.paramMap.subscribe(params => {
       this.cardSetId = params.get('cardSetId') || "undefined"
     })
-  }
-
-  goBack() {
-    this.location.back()
   }
 
   switchCardState() {
