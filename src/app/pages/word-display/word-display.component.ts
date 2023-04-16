@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+type CardState = 'front' | 'back'
 @Component({
   selector: 'app-word-display',
   templateUrl: './word-display.component.html',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WordDisplayComponent {
   cardSetId!: string
+  currentCardState: CardState = 'front'
   
   constructor(
     private route: ActivatedRoute,
@@ -21,5 +23,9 @@ export class WordDisplayComponent {
 
   goBack() {
     this.location.back()
+  }
+
+  switchCardState() {
+    this.currentCardState = this.currentCardState === 'front' ? 'back' : 'front'
   }
 }

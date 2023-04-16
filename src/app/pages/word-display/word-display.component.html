@@ -1,12 +1,12 @@
 <div class="h-screen -mt-24 pt-24 flex flex-col justify-between">
-    <div>
-        <div (click)="goBack()" class="flex items-center mb-3">
+    <div class="w-full max-w-md mx-auto">
+        <div (click)="goBack()" class="flex items-center mb-3 w-full">
             <i class="pi pi-angle-left text-lg mr-1"></i>
             <p class="text-lg">Back</p>
         </div>
-        <div class="w-full max-w-md mx-auto">
-            <div class="front-card">
-                <p class="front-card-text">Angular</p>
+        <div (click)="switchCardState()" class="w-full">
+            <div [ngClass]="currentCardState === 'front' ? 'front-card' : 'back-card'">
+                <p [ngClass]="currentCardState === 'front' ? 'front-card-text' : 'back-card-text'">Angular</p>
             </div>
         </div>
     </div>
