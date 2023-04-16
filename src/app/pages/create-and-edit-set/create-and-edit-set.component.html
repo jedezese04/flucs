@@ -1,26 +1,30 @@
-<div class="w-full max-w-sm mx-auto">
-    <div class="w-full flex items-center">
-        <p class="mr-2 text-lg">Name</p>
-        <input class="w-full" type="text" pInputText />
-    </div>
-    <div class="w-full flex items-center mt-3">
-        <p class="mr-5 text-lg">Type</p>
-        <input class="w-full" type="text" pInputText />
-    </div>
+<form [formGroup]="cardSetForm" (ngSubmit)="onSubmit()">
+    <div class="w-full max-w-sm mx-auto">
+        <app-go-back-button></app-go-back-button>
+        <div class="w-full flex items-center">
+            <p class="mr-2 text-lg">Name</p>
+            <input formControlName="name" class="w-full" type="text" pInputText />
+        </div>
+        <div class="w-full flex items-center mt-3">
+            <p class="mr-5 text-lg">Type</p>
+            <input formControlName="type" class="w-full" type="text" pInputText />
+        </div>
 
-    <div class="flex mt-3">
-        <p class="mr-5 text-lg">Public</p>
-        <p-inputSwitch></p-inputSwitch>
-    </div>
+        <div class="flex mt-3">
+            <p class="mr-5 text-lg">Public</p>
+            <p-inputSwitch formControlName="public"></p-inputSwitch>
+        </div>
 
-    <div class="flex justify-end items-center">
-        <p-button class="mr-2" icon="pi pi-check" styleClass="p-button-rounded p-button-success"></p-button>
-        <p-button icon="pi pi-plus" styleClass="p-button-rounded p-button-outlined"></p-button>
-    </div>
+        <div class="flex justify-end items-center">
+            <p-button (click)="addCard()" class="mr-2" icon="pi pi-plus" styleClass="p-button-rounded p-button-outlined"></p-button>
+            <p-button type="submit" icon="pi pi-check" styleClass="p-button-rounded p-button-success"></p-button>
+        </div>
 
-    <div class="w-full max-w-sm mx-auto py-5 card-editor-container">
-        <app-card-editor-item></app-card-editor-item>
-        <app-card-editor-item></app-card-editor-item>
-        <app-card-editor-item></app-card-editor-item>
+        <div formArrayName="cards" class="w-full max-w-sm mx-auto py-5 card-editor-container">
+            <app-card-editor-item *ngFor="let card of cards.controls; let i = index" [card]="castToFormGroup(card)" (remove)="removeCard(i)"></app-card-editor-item>
+            <div *ngIf="cards.length === 0" class="text-center">
+                <p>There's no card yet.</p>
+            </div>
+        </div>
     </div>
-</div>
+</form>

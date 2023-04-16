@@ -1,7 +1,7 @@
-<div class="w-full bg-slate-100 p-3 rounded-md">
-    <input class="w-full p-inputtext-sm mb-2" placeholder="word" type="text" pInputText />
-    <textarea rows="2" class="w-full" placeholder="definition" pInputTextarea></textarea>
+<div [formGroup]="card" class="w-full bg-slate-100 p-3 rounded-md">
+    <input formControlName="word" class="w-full p-inputtext-sm mb-2" placeholder="word" type="text" pInputText />
+    <textarea formControlName="definition" rows="2" class="w-full" placeholder="definition" pInputTextarea></textarea>
     <div class="flex justify-end mt-1">
-        <p-button icon="pi pi-trash" styleClass="p-button-danger p-button-sm"></p-button>
+        <p-button (click)="onRemove()" icon="pi pi-trash" styleClass="p-button-danger p-button-sm"></p-button>
     </div>
 </div>
