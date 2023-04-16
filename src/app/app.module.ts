@@ -24,6 +24,8 @@ import { HomeComponent, WordDisplayComponent, ResultComponent, SetDetailsCompone
     TopBarComponent,
     CardContainerComponent,
     CardEditorItemComponent,
+
+    // Directives
   ],
   imports: [
     BrowserModule,

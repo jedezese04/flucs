@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-container',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-container.component.css']
 })
 export class CardContainerComponent {
+  @Output('click') clickEvent = new EventEmitter()
 
+  emitClickEvent(event: MouseEvent) {
+    this.clickEvent.emit(event)
+  }
 }

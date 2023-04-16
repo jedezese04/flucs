@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 type Tab = 'my-cards' | 'public-cards'
 
@@ -10,10 +11,16 @@ type Tab = 'my-cards' | 'public-cards'
 export class HomeComponent {
   currentTab: Tab = 'my-cards'
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
 
   updateTap(tab: Tab) {
     this.currentTab = tab
+  }
+
+  cardClickedHandler(cardSetId: string) {
+    this.router.navigate(['word-display', cardSetId])
   }
 
 }

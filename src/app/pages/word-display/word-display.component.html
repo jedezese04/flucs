@@ -1,7 +1,13 @@
 <div class="h-screen -mt-24 pt-24 flex flex-col justify-between">
-    <div class="w-full max-w-md mx-auto">
-        <div class="front-card">
-            <p class="front-card-text">Angular</p>
+    <div>
+        <div (click)="goBack()" class="flex items-center mb-3">
+            <i class="pi pi-angle-left text-lg mr-1"></i>
+            <p class="text-lg">Back</p>
+        </div>
+        <div class="w-full max-w-md mx-auto">
+            <div class="front-card">
+                <p class="front-card-text">Angular</p>
+            </div>
         </div>
     </div>
     <div class="flex px-2 justify-between items-center w-full max-w-md mx-auto">
