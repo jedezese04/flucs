@@ -57,6 +57,16 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.cardSets = value
           this.isLoading = false
         });
+      } else if (value === 'my-cards') {
+        if(!this.user) {
+          this._currentTab$.next('public-cards')
+          return
+        }
+        this.isLoading = true
+        this.cardSet.requestPrivateCard(this.user?.userId).subscribe((value) => {
+          this.cardSets = value
+          this.isLoading = false
+        });
       }
     });
   }

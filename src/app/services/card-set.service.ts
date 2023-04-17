@@ -17,4 +17,8 @@ export class CardSetService {
     requestPublicSet(): Observable<CardSet[]> {
         return this.http.get<CardSet[]>(this.baseUrl + '/public')
     }
+
+    requestPrivateCard(userId: string): Observable<CardSet[]> {
+        return this.http.get<CardSet[]>(this.baseUrl + '/' + userId)
+    }
 }
