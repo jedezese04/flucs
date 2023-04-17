@@ -24,6 +24,11 @@ export class AuthenticationService {
     return jwtDecode(token) as User;
   }
 
+  init() {
+    const token = localStorage.getItem(this.tokenKey)
+    if(token) this._user$.next(this.extractUser(token))
+  }
+
   login(body: LoginRequestBody) {
     const request = this.requestToken(body);
     request.subscribe((value) => {
