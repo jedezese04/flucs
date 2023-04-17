@@ -8,7 +8,7 @@
             <button *ngIf="user" (click)="updateTap('my-cards')"
                 [ngClass]="(currentTab | async)=== 'my-cards' ? 'active-button' : 'inactive-button'">My Cards</button>
         </div>
-        <p-button label="Create" styleClass="p-button-link p-button-sm" routerLink="/create"></p-button>
+        <p-button *ngIf="user" label="Create" styleClass="p-button-link p-button-sm" routerLink="/create"></p-button>
     </div>
     <!-- End Filtering Section -->
     <div class="mx-auto w-full max-w-md">
