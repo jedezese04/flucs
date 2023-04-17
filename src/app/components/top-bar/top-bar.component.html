@@ -1,4 +1,4 @@
-<div class="w-full p-4 bg-color-primary flex items-center justify-between">
+<div class="w-full p-4 bg-color-primary flex items-center justify-between fixed top-0 z-10">
     <p class="text-white text-lg font-semibold">Flucs</p>
     <p *ngIf="loggingIn" class="text-white">Logging In...</p>
     <p *ngIf="!loggingIn" (click)="loginClickHandler('jedesada2004')" class="text-white underline">{{ user?.userId ? user?.displayName : 'Login' }}</p>
