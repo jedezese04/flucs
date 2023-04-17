@@ -12,7 +12,7 @@
     </div>
     <!-- End Filtering Section -->
     <div class="mx-auto w-full max-w-md">
-        <div *ngIf="isLoading" class="w-full flex justify-center mt-44 items-center">
+        <div *ngIf="isLoading" class="w-full flex justify-center mt-48 items-center">
             <p-progressSpinner></p-progressSpinner>
         </div>
         <div *ngIf="!isLoading">
@@ -21,6 +21,9 @@
                     (clickEvent)="cardClickedHandler(cardSet.cardSetId)"
                     (iconClickEvent)="cardClickedIconHandler(cardSet.cardSetId)"></app-card-container>
             </div>
+        </div>
+        <div *ngIf="!isLoading && cardSets.length === 0" class="w-full flex justify-center mt-48 items-center">
+            <p>There's no any set of card :(</p>
         </div>
     </div>
 </div>
