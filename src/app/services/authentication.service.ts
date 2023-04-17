@@ -10,6 +10,7 @@ import { LoginRequestBody, LoginResponse, User } from '../models';
 })
 export class AuthenticationService {
   private baseUrl = API_ROOT_URL + '/login';
+  private tokenKey = 'token'
 
   constructor(private http: HttpClient) {}
 
@@ -22,17 +23,17 @@ export class AuthenticationService {
     return request.pipe(
       tap((value) => {
         const { token } = value;
-        localStorage.setItem('token', token);
+        localStorage.setItem(this.tokenKey, token);
       })
     );
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem(this.tokenKey);
   }
 
   getUser(): User | null {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.tokenKey);
     if (!token) return null;
     return jwtDecode(token) as User;
   }
