@@ -10,6 +10,11 @@ export class SetDetailsComponent {
   cardSet: CardSet = {
     name: 'Math Formula',
     type: 'Math',
+    creator: {
+      userId: "1",
+      username: "jedezese04",
+      displayName: "Jedsada"
+    },
     public: true,
     cards: [
       { word: 'Word 1', definition: 'Definition 1', remembered: true },

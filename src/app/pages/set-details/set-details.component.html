@@ -3,7 +3,7 @@
     <p class="font-semibold text-3xl">Math Formula</p>
     <p class="text-lg my-2">Remembered {{ rememberedCount }}/{{ cardSet.cards.length }}</p>
     <div class="flex items-center justify-between">
-        <p class="text-lg bg-gray-200 inline-block p-1 px-2 rounded-md">Jedsada N.</p>
+        <p class="text-lg bg-gray-200 inline-block p-1 px-2 rounded-md">{{ cardSet.creator.displayName }}</p>
         <a routerLink="/edit/1" class="font-semibold">Edit</a>
     </div>
     <div class="list-container mt-4">
