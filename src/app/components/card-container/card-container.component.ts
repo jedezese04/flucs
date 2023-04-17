@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CardSet } from 'src/app/models';
 
 @Component({
   selector: 'app-card-container',
@@ -6,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./card-container.component.css']
 })
 export class CardContainerComponent {
+  @Input() cardSet!: CardSet & { remembered: string }
   @Output() clickEvent = new EventEmitter()
   @Output() iconClickEvent = new EventEmitter()
 

@@ -2,13 +2,25 @@
     <!-- Filtering Section -->
     <div class="flex justify-between items-center mb-4 max-w-md mx-auto">
         <div class="flex">
-            <button (click)="updateTap('public-cards')" [ngClass]="(currentTab | async) === 'public-cards' ? 'active-button' : 'inactive-button'" class="mr-3">Public Cards</button>
-            <button *ngIf="user" (click)="updateTap('my-cards')" [ngClass]="(currentTab | async)=== 'my-cards' ? 'active-button' : 'inactive-button'">My Cards</button>
+            <button (click)="updateTap('public-cards')"
+                [ngClass]="(currentTab | async) === 'public-cards' ? 'active-button' : 'inactive-button'"
+                class="mr-3">Public Cards</button>
+            <button *ngIf="user" (click)="updateTap('my-cards')"
+                [ngClass]="(currentTab | async)=== 'my-cards' ? 'active-button' : 'inactive-button'">My Cards</button>
         </div>
         <p-button label="Create" styleClass="p-button-link p-button-sm" routerLink="/create"></p-button>
     </div>
     <!-- End Filtering Section -->
     <div class="mx-auto w-full max-w-md">
-        <app-card-container (clickEvent)="cardClickedHandler('1')" (iconClickEvent)="cardClickedIconHandler('1')"></app-card-container>
+        <div *ngIf="isLoading" class="w-full flex justify-center mt-44 items-center">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+        <div *ngIf="!isLoading">
+            <div *ngFor="let cardSet of cardSets">
+                <app-card-container [cardSet]="getCardSetWithRememberedCount(cardSet)"
+                    (clickEvent)="cardClickedHandler(cardSet.cardSetId)"
+                    (iconClickEvent)="cardClickedIconHandler(cardSet.cardSetId)"></app-card-container>
+            </div>
+        </div>
     </div>
 </div>

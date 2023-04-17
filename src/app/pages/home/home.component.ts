@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { User } from 'src/app/models';
+import { CardSet, User } from 'src/app/models';
 import { AuthenticationService, CardSetService } from 'src/app/services';
 
 type Tab = 'my-cards' | 'public-cards';
@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   user!: User | null;
   currentTab: Observable<Tab> = this._currentTab$.asObservable();
+  cardSets: CardSet[] = []
+  isLoading = false
 
   constructor(
     private router: Router,
@@ -50,17 +52,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscribeToTabChanges(): void {
     this._currentTab$.pipe(takeUntil(this._destroy$)).subscribe((value) => {
       if (value === 'public-cards') {
+        this.isLoading = true
         this.cardSet.requestPublicSet().subscribe((value) => {
-          console.log(value);
+          this.cardSets = value
+          this.isLoading = false
         });
       }
     });
   }
 
+  getRememberedWordsCount(cardSet: CardSet): string {
+    const rememberedCount = cardSet.cards.filter(card => card.remembered).length;
+    const totalCount = cardSet.cards.length;
+    return `${rememberedCount}/${totalCount}`;
+  }
+
+  getCardSetWithRememberedCount(cardSet: CardSet): CardSet & { remembered: string } {
+    const remembered = this.getRememberedWordsCount(cardSet);
+    return { ...cardSet, remembered };
+  }
+
   updateTap(tab: Tab) {
     this._currentTab$.next(tab);
   }
-  
+
   cardClickedHandler(cardSetId: string) {
     this.router.navigate(['word-display', cardSetId]);
   }

@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext'
 import { InputSwitchModule } from 'primeng/inputswitch'
 import { ButtonModule } from 'primeng/button'
 import { InputTextareaModule } from 'primeng/inputtextarea'
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +42,8 @@ import { AuthenticationService, CardSetService } from './services';
     InputTextModule,
     InputSwitchModule,
     ButtonModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ProgressSpinnerModule
   ],
   providers: [
     AuthenticationService,

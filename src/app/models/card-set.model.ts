@@ -7,6 +7,7 @@ export interface Card {
 }
 
 export interface CardSet {
+    cardSetId: string
     name: string
     type: string
     creator: User

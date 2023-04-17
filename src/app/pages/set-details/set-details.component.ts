@@ -8,6 +8,7 @@ import { CardSet } from '../../models';
 })
 export class SetDetailsComponent {
   cardSet: CardSet = {
+    cardSetId: '1',
     name: 'Math Formula',
     type: 'Math',
     creator: {

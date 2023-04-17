@@ -4,8 +4,6 @@ import { CardSet } from "../models";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
-type CardSetList = Array<Omit<CardSet, 'cards'>>
-
 @Injectable({
     providedIn: 'root'
 })
@@ -16,7 +14,7 @@ export class CardSetService {
         private http: HttpClient
     ) {}
 
-    requestPublicSet(): Observable<CardSetList> {
-        return this.http.get<CardSetList>(this.baseUrl + '/public')
+    requestPublicSet(): Observable<CardSet[]> {
+        return this.http.get<CardSet[]>(this.baseUrl + '/public')
     }
 }
