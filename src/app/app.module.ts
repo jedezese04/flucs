@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext'
 import { InputSwitchModule } from 'primeng/inputswitch'
 import { ButtonModule } from 'primeng/button'
@@ -33,6 +34,7 @@ import { HomeComponent, WordDisplayComponent, ResultComponent, SetDetailsCompone
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     // Lib Modules
     InputTextModule,
