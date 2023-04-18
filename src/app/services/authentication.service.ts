@@ -20,7 +20,7 @@ export class AuthenticationService {
     return this.http.post<LoginResponse>(this.baseUrl, body);
   }
 
-  private extractUser(token: string): User {
+  extractUser(token: string): User {
     return jwtDecode(token) as User;
   }
 
